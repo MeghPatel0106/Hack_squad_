@@ -1,0 +1,169 @@
+{
+  "chain": [
+    {
+      "index": 0,
+      "timestamp": 1756548504.6010492,
+      "data": {
+        "type": "genesis",
+        "message": "Green Hydrogen Credit Blockchain Simulator - Genesis Block",
+        "timestamp": "2025-08-30T10:08:24.600724+00:00",
+        "version": "1.0",
+        "description": "This is a simple blockchain simulation for demonstration purposes"
+      },
+      "previous_hash": "0",
+      "nonce": 0,
+      "hash": "b063a8be8e4135d5b935ba2079ab2eab9cff07d5fc951116b410db55b4f5752f"
+    },
+    {
+      "index": 1,
+      "timestamp": 1756548504.601443,
+      "data": {
+        "type": "hydrogen_credit_certificate",
+        "certificate_id": "70482afe-50f1-41c8-ac68-9d280058e491",
+        "seller_id": 1,
+        "facility_name": "Test Solar Farm",
+        "hydrogen_weight_kg": 100.0,
+        "tokens_generated": 100,
+        "renewable_source": "solar",
+        "production_date": "2025-08-30",
+        "location": "California",
+        "certification_type": "standard",
+        "price_per_token": 2.5,
+        "status": "issued",
+        "issued_at": "2025-08-30T10:08:24.601438+00:00",
+        "blockchain_version": "1.0"
+      },
+      "previous_hash": "b063a8be8e4135d5b935ba2079ab2eab9cff07d5fc951116b410db55b4f5752f",
+      "nonce": 167062,
+      "hash": "00008ee4d19cd23315ab1e098e2dff5f795077089a8b4237863c576a947e4f5e"
+    },
+    {
+      "index": 2,
+      "timestamp": 1756548505.981502,
+      "data": {
+        "type": "certificate_retirement",
+        "certificate_id": "70482afe-50f1-41c8-ac68-9d280058e491",
+        "original_hash": "00008ee4d19cd23315ab1e098e2dff5f795077089a8b4237863c576a947e4f5e",
+        "retired_at": "2025-08-30T10:08:25.981497+00:00",
+        "status": "retired",
+        "reason": "Certificate used for credit purchase"
+      },
+      "previous_hash": "00008ee4d19cd23315ab1e098e2dff5f795077089a8b4237863c576a947e4f5e",
+      "nonce": 128545,
+      "hash": "00009e198fcba4021c7aec9e4623758f72d079deaddd5de62a2d6e37c70bcae5"
+    },
+    {
+      "index": 3,
+      "timestamp": 1756548554.387476,
+      "data": {
+        "type": "hydrogen_credit_certificate",
+        "certificate_id": "bfadb861-ac07-4163-a4cc-17b0a14c804d",
+        "seller_id": 1,
+        "facility_name": "Desert Solar Farm",
+        "hydrogen_weight_kg": 600.0,
+        "tokens_generated": 600,
+        "renewable_source": "solar",
+        "production_date": "2025-08-30",
+        "location": "Nevada",
+        "certification_type": "premium",
+        "price_per_token": 4.2,
+        "status": "issued",
+        "issued_at": "2025-08-30T10:09:14.387463+00:00",
+        "blockchain_version": "1.0"
+      },
+      "previous_hash": "00009e198fcba4021c7aec9e4623758f72d079deaddd5de62a2d6e37c70bcae5",
+      "nonce": 30229,
+      "hash": "00004a8781b6cc47c488d0b7a903668b0ba44abd472accf96a8ea524a9a59a1f"
+    },
+    {
+      "index": 4,
+      "timestamp": 1756548963.0032241,
+      "data": {
+        "type": "hydrogen_credit_certificate",
+        "certificate_id": "492828b0-d2ca-48d3-b5bf-412ad50460f1",
+        "seller_id": 6,
+        "facility_name": "jkfsdnfhjksdfb",
+        "hydrogen_weight_kg": 1234567890.0,
+        "tokens_generated": 1234567890,
+        "renewable_source": "wind",
+        "production_date": "2025-08-08",
+        "location": "jewifoheiofhnagew",
+        "certification_type": "standard",
+        "price_per_token": 2.5,
+        "status": "issued",
+        "issued_at": "2025-08-30T10:16:03.003206+00:00",
+        "blockchain_version": "1.0"
+      },
+      "previous_hash": "00004a8781b6cc47c488d0b7a903668b0ba44abd472accf96a8ea524a9a59a1f",
+      "nonce": 44320,
+      "hash": "0000080ac7a04cc42e45a353793e3b8632dd2f43dcd2cb10d490f9c8078040bd"
+    },
+    {
+      "index": 5,
+      "timestamp": 1756549222.717657,
+      "data": {
+        "type": "certificate_retirement",
+        "certificate_id": "492828b0-d2ca-48d3-b5bf-412ad50460f1",
+        "original_hash": "0000080ac7a04cc42e45a353793e3b8632dd2f43dcd2cb10d490f9c8078040bd",
+        "retired_at": "2025-08-30T10:20:22.717645+00:00",
+        "status": "retired",
+        "reason": "Certificate used for credit purchase"
+      },
+      "previous_hash": "0000080ac7a04cc42e45a353793e3b8632dd2f43dcd2cb10d490f9c8078040bd",
+      "nonce": 117181,
+      "hash": "00005bda92271360c29662a661852550630cf3036c883b0d7cd39ae4737d2337"
+    }
+  ],
+  "certificates": {
+    "70482afe-50f1-41c8-ac68-9d280058e491": {
+      "hash": "00008ee4d19cd23315ab1e098e2dff5f795077089a8b4237863c576a947e4f5e",
+      "block_index": 1,
+      "data": {
+        "type": "hydrogen_credit_certificate",
+        "certificate_id": "70482afe-50f1-41c8-ac68-9d280058e491",
+        "seller_id": 1,
+        "facility_name": "Test Solar Farm",
+        "hydrogen_weight_kg": 100.0,
+        "tokens_generated": 100,
+        "renewable_source": "solar",
+        "production_date": "2025-08-30",
+        "location": "California",
+        "certification_type": "standard",
+        "price_per_token": 2.5,
+        "status": "issued",
+        "issued_at": "2025-08-30T10:08:24.601438+00:00",
+        "blockchain_version": "1.0"
+      },
+      "status": "retired"
+    },
+    "492828b0-d2ca-48d3-b5bf-412ad50460f1": {
+      "hash": "0000080ac7a04cc42e45a353793e3b8632dd2f43dcd2cb10d490f9c8078040bd",
+      "block_index": 4,
+      "data": {
+        "type": "hydrogen_credit_certificate",
+        "certificate_id": "492828b0-d2ca-48d3-b5bf-412ad50460f1",
+        "seller_id": 6,
+        "facility_name": "jkfsdnfhjksdfb",
+        "hydrogen_weight_kg": 1234567890.0,
+        "tokens_generated": 1234567890,
+        "renewable_source": "wind",
+        "production_date": "2025-08-08",
+        "location": "jewifoheiofhnagew",
+        "certification_type": "standard",
+        "price_per_token": 2.5,
+        "status": "issued",
+        "issued_at": "2025-08-30T10:16:03.003206+00:00",
+        "blockchain_version": "1.0"
+      },
+      "status": "retired"
+    }
+  },
+  "retired_certificates": [
+    "70482afe-50f1-41c8-ac68-9d280058e491",
+    "492828b0-d2ca-48d3-b5bf-412ad50460f1"
+  ],
+  "last_updated": "2025-08-30T10:20:23.426866+00:00",
+  "total_blocks": 6,
+  "total_certificates": 2,
+  "retired_count": 2
+}

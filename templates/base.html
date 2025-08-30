@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Green Hydrogen Credits{% endblock %}</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10B981',
+                        secondary: '#059669'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <!-- Logo and Brand -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <div class="w-8 h-8 bg-gradient-to-r from-green-500 to-blue-600 rounded-lg flex items-center justify-center mr-3">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold text-gray-900">Green Hydrogen Credits</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="{{ url_for('home') }}" class="text-gray-700 hover:text-primary transition-colors font-medium">
+                        Home
+                    </a>
+                    {% if session.user_id %}
+                        <a href="{{ url_for('dashboard') }}" class="text-gray-700 hover:text-primary transition-colors font-medium">
+                            Dashboard
+                        </a>
+                        {% if session.user_type == 'user' %}
+                        <a href="{{ url_for('seller_panel') }}" class="text-gray-700 hover:text-primary transition-colors font-medium">
+                            Seller Panel
+                        </a>
+                        <a href="{{ url_for('buyer_panel') }}" class="text-gray-700 hover:text-primary transition-colors font-medium">
+                            Buyer Panel
+                        </a>
+                        <a href="{{ url_for('blockchain_dashboard') }}" class="text-gray-700 hover:text-primary transition-colors font-medium">
+                            Blockchain
+                        </a> 
+                        {% endif %}
+                        {% if session.user_type == 'authority' %}
+                        <a href="{{ url_for('authority_panel') }}" class="text-gray-700 hover:text-primary transition-colors font-medium">
+                            Authority Panel
+                        </a>
+                        <a href="{{ url_for('blockchain_dashboard') }}" class="text-gray-700 hover:text-primary transition-colors font-medium">
+                            Blockchain
+                        </a> 
+                        {% endif %}
+                        <div class="flex items-center space-x-4">
+                            <span class="text-gray-600 text-sm">Welcome, {{ session.username }} ({{ session.user_type }})</span>
+                            <a href="{{ url_for('logout') }}" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition-colors font-medium">
+                                Logout
+                            </a>
+                        </div>
+                    {% else %}
+                        <a href="{{ url_for('login') }}" class="text-gray-700 hover:text-primary transition-colors font-medium">
+                            Login
+                        </a>
+                        <a href="{{ url_for('register') }}" class="bg-primary hover:bg-secondary text-white px-6 py-2 rounded-lg transition-colors font-medium">
+                            Register
+                        </a>
+                    {% endif %}
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button type="button" onclick="toggleMobileMenu()" class="text-gray-700 hover:text-primary focus:outline-none focus:text-primary">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-200">
+                <a href="{{ url_for('home') }}" class="block px-3 py-2 text-gray-700 hover:text-primary transition-colors">
+                    Home
+                </a>
+                                    {% if session.user_id %}
+                        <a href="{{ url_for('dashboard') }}" class="block px-3 py-2 text-gray-700 hover:text-primary transition-colors">
+                            Dashboard
+                        </a>
+                        {% if session.user_type == 'user' %}
+                        <a href="{{ url_for('seller_panel') }}" class="block px-3 py-2 text-gray-700 hover:text-primary transition-colors">
+                            Seller Panel
+                        </a>
+                        <a href="{{ url_for('buyer_panel') }}" class="block px-3 py-2 text-gray-700 hover:text-primary transition-colors">
+                            Buyer Panel
+                        </a>
+                        <a href="{{ url_for('blockchain_dashboard') }}" class="block px-3 py-2 text-gray-700 hover:text-primary transition-colors">
+                            Blockchain
+                        </a>
+                        <a href="{{ url_for('realtime_blockchain_dashboard') }}" class="block px-3 py-2 text-gray-700 hover:text-primary transition-colors">
+                            Live Blockchain
+                        </a>
+                        {% endif %}
+                        {% if session.user_type == 'authority' %}
+                        <a href="{{ url_for('authority_panel') }}" class="block px-3 py-2 text-gray-700 hover:text-primary transition-colors">
+                            Authority Panel
+                        </a>
+                        <a href="{{ url_for('blockchain_dashboard') }}" class="block px-3 py-2 text-gray-700 hover:text-primary transition-colors">
+                            Blockchain
+                        </a>
+                        <a href="{{ url_for('realtime_blockchain_dashboard') }}" class="block px-3 py-2 text-gray-700 hover:text-primary transition-colors">
+                            Live Blockchain
+                        </a>
+                        {% endif %}
+                    <div class="px-3 py-2 text-gray-600 text-sm">
+                        Welcome, {{ session.username }}
+                    </div>
+                    <a href="{{ url_for('logout') }}" class="block px-3 py-2 text-red-600 hover:text-red-700 transition-colors">
+                        Logout
+                    </a>
+                {% else %}
+                    <a href="{{ url_for('login') }}" class="block px-3 py-2 text-gray-700 hover:text-primary transition-colors">
+                        Login
+                    </a>
+                    <a href="{{ url_for('register') }}" class="block px-3 py-2 text-primary hover:text-secondary transition-colors">
+                        Register
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4">
+                {% for category, message in messages %}
+                    <div class="mb-4 p-4 rounded-lg border {% if category == 'error' %}bg-red-50 border-red-200 text-red-700{% elif category == 'success' %}bg-green-50 border-green-200 text-green-700{% else %}bg-blue-50 border-blue-200 text-blue-700{% endif %}">
+                        <div class="flex items-center">
+                            {% if category == 'error' %}
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
+                                </svg>
+                            {% elif category == 'success' %}
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                            {% else %}
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+                                </svg>
+                            {% endif %}
+                            <span>{{ message }}</span>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center">
+                <div class="flex items-center justify-center mb-4">
+                    <div class="w-8 h-8 bg-gradient-to-r from-green-500 to-blue-600 rounded-lg flex items-center justify-center mr-3">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <span class="text-xl font-bold text-gray-900">Green Hydrogen Credits</span>
+                </div>
+                <p class="text-gray-600 text-sm">
+                    Blockchain-based green hydrogen credit system for a sustainable future
+                </p>
+                <div class="mt-4 flex justify-center space-x-6 text-sm text-gray-500">
+                    <span>© 2024 Green Hydrogen Credits</span>
+                    <span>•</span>
+                    <span>Powered by Blockchain Technology</span>
+                    <span>•</span>
+                    <span>Transparent & Secure</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

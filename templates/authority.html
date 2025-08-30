@@ -1,0 +1,366 @@
+{% extends "base.html" %}
+
+{% block title %}Authority Panel - Green Hydrogen Credits{% endblock %}
+
+{% block content %}
+<div class="space-y-8">
+    <!-- Header Section -->
+    <div class="bg-gradient-to-r from-red-600 to-orange-600 rounded-xl p-8 text-white">
+        <div class="flex items-center justify-between">
+            <div>
+                <h1 class="text-3xl font-bold mb-2">Authority Panel</h1>
+                <p class="text-red-100 text-lg">Review and verify pending hydrogen credit requests</p>
+            </div>
+            <div class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- Authority Stats Section -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100 text-center">
+            <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </div>
+            <div class="text-2xl font-bold text-gray-900">{{ pending_requests|length }}</div>
+            <div class="text-sm text-gray-600">Pending Requests</div>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100 text-center">
+            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </div>
+            <div class="text-2xl font-bold text-gray-900">{{ approved_requests }}</div>
+            <div class="text-sm text-gray-600">Approved Today</div>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100 text-center">
+            <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </div>
+            <div class="text-2xl font-bold text-gray-900">{{ rejected_requests }}</div>
+            <div class="text-sm text-gray-600">Rejected Today</div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100 text-center">
+            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                </svg>
+            </div>
+            <div class="text-2xl font-bold text-gray-900">{{ total_verified }}</div>
+            <div class="text-sm text-gray-600">Total Verified</div>
+        </div>
+    </div>
+
+    <!-- Pending Requests Section -->
+    <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+        <div class="flex items-center justify-between mb-8">
+            <h2 class="text-2xl font-bold text-gray-900">Pending Verification Requests</h2>
+            <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </div>
+        </div>
+        
+        {% if pending_requests %}
+        <div class="space-y-6">
+            {% for request in pending_requests %}
+            <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-gray-900 text-lg">{{ request.renewable_source.title() }} Hydrogen Production</div>
+                            <div class="text-sm text-gray-600">Request ID: #{{ request.credit_id[:8] }}</div>
+                            <div class="text-xs text-gray-500">Submitted: {{ request.created_at.strftime('%b %d, %Y at %I:%M %p') }}</div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="font-bold text-gray-900 text-xl">{{ request.tokens_generated }} Tokens</div>
+                        <div class="text-sm text-gray-600">{{ request.certification_type.title() }}</div>
+                    </div>
+                </div>
+
+                <!-- Production Details -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div class="bg-gray-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-gray-900 mb-2">Production Details</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Facility:</span>
+                                <span class="font-medium">{{ request.facility_name }}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Location:</span>
+                                <span class="font-medium">{{ request.location }}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Production Date:</span>
+                                <span class="font-medium">{{ request.production_date.strftime('%b %d, %Y') }}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Energy Source:</span>
+                                <span class="font-medium">{{ request.renewable_source.title() }}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Production Capacity:</span>
+                                <span class="font-medium">{{ "%.1f"|format(request.production_capacity) }} MWh</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Hydrogen Weight:</span>
+                                <span class="font-medium">{{ "%.1f"|format(request.hydrogen_weight_kg) }} kg</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Tokens Generated:</span>
+                                <span class="font-medium">{{ request.tokens_generated }} tokens</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Hydrogen Weight:</span>
+                                <span class="font-medium">{{ "%.1f"|format(request.hydrogen_weight_kg) }} kg</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Tokens Generated:</span>
+                                <span class="font-medium">{{ request.tokens_generated }} tokens</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-gray-900 mb-2">Seller Information</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Seller:</span>
+                                <span class="font-medium">{{ request.seller.username }}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Email:</span>
+                                <span class="font-medium">{{ request.seller.email }}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Member Since:</span>
+                                <span class="font-medium">{{ request.seller.created_at.strftime('%b %Y') }}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Previous Credits:</span>
+                                <span class="font-medium">{{ seller_credits_count.get(request.seller.id, 0) }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Description -->
+                {% if request.description %}
+                <div class="mb-6">
+                    <h4 class="font-semibold text-gray-900 mb-2">Production Description</h4>
+                    <div class="bg-gray-50 rounded-lg p-4 text-sm text-gray-700">
+                        {{ request.description }}
+                    </div>
+                </div>
+                {% endif %}
+
+                <!-- Verification Checklist -->
+                <div class="mb-6">
+                    <h4 class="font-semibold text-gray-900 mb-3">Verification Checklist</h4>
+                    <div class="bg-blue-50 rounded-lg p-4 space-y-3">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center">
+                                <svg class="w-3 h-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <span class="text-sm text-blue-800">Verify facility location and renewable energy source</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center">
+                                <svg class="w-3 h-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <span class="text-sm text-blue-800">Check hydrogen weight calculation (1 kg = 1 token)</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center">
+                                <svg class="w-3 h-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <span class="text-sm text-blue-800">Review seller history and previous credits</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center">
+                                <svg class="w-3 h-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <span class="text-sm text-blue-800">Ensure production date is reasonable and recent</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Verification Risk Assessment -->
+                <div class="mb-6">
+                    <h4 class="font-semibold text-gray-900 mb-3">Risk Assessment</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-green-50 rounded-lg p-4 border border-green-200">
+                            <div class="flex items-center space-x-2 mb-2">
+                                <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <span class="font-medium text-green-800">Low Risk</span>
+                            </div>
+                            <div class="text-sm text-green-700">
+                                {% if seller_credits_count.get(request.seller.id, 0) > 0 %}
+                                    ✅ Seller has {{ seller_credits_count.get(request.seller.id, 0) }} previous credits
+                                {% else %}
+                                    ⚠️ First-time seller
+                                {% endif %}
+                            </div>
+                        </div>
+                        
+                        <div class="bg-yellow-50 rounded-lg p-4 border border-yellow-200">
+                            <div class="flex items-center space-x-2 mb-2">
+                                <svg class="w-5 h-5 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.34 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                                </svg>
+                                <span class="font-medium text-yellow-800">Data Validation</span>
+                            </div>
+                            <div class="text-sm text-yellow-700">
+                                {% if request.hydrogen_weight_kg > 0 and request.tokens_generated > 0 %}
+                                    ✅ Token calculation correct
+                                {% else %}
+                                    ⚠️ Check token calculation
+                                {% endif %}
+                            </div>
+                        </div>
+                        
+                        <div class="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                            <div class="flex items-center space-x-2 mb-2">
+                                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <span class="font-medium text-blue-800">Market Impact</span>
+                            </div>
+                            <div class="text-sm text-blue-700">
+                                {{ request.tokens_generated }} tokens = ${{ "%.2f"|format(request.tokens_generated * request.price_per_token) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Verification Actions -->
+                <div class="flex items-center justify-between pt-4 border-t border-gray-200">
+                    <div class="text-sm text-gray-600">
+                        <p>⚠️ Review all details carefully before making a decision</p>
+                        <p>🔒 This action will be recorded on the blockchain</p>
+                    </div>
+                    <div class="flex space-x-3">
+                        <form method="POST" action="{{ url_for('verify_request') }}" class="inline">
+                            <input type="hidden" name="credit_id" value="{{ request.credit_id }}">
+                            <input type="hidden" name="action" value="reject">
+                            <div class="flex items-center space-x-2">
+                                <input type="text" name="rejection_reason" placeholder="Rejection reason..." 
+                                       class="px-3 py-2 border border-red-300 rounded-lg text-sm focus:ring-2 focus:ring-red-500 focus:border-red-500"
+                                       required>
+                                <button type="submit" 
+                                        class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-colors transform hover:scale-105"
+                                        onclick="return confirm('Are you sure you want to REJECT this request? This action cannot be undone.')">
+                                    <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    Reject
+                                </button>
+                            </div>
+                        </form>
+                        
+                        <form method="POST" action="{{ url_for('verify_request') }}" class="inline">
+                            <input type="hidden" name="credit_id" value="{{ request.credit_id }}">
+                            <input type="hidden" name="action" value="approve">
+                            <button type="submit" 
+                                    class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-medium transition-colors transform hover:scale-105"
+                                    onclick="return confirm('Are you sure you want to APPROVE this request? The credit will be activated on the blockchain.')">
+                                <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                Approve
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="text-center py-12 text-gray-500">
+            <svg class="w-16 h-16 mx-auto mb-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <p class="text-lg font-medium">No pending requests</p>
+            <p class="text-sm mt-2">All verification requests have been processed</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Recent Decisions Section -->
+    <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+        <div class="flex items-center justify-between mb-8">
+            <h2 class="text-2xl font-bold text-gray-900">Recent Decisions</h2>
+            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </div>
+        </div>
+        
+        <div class="space-y-4">
+            {% for decision in recent_decisions %}
+            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-200">
+                <div class="flex items-center space-x-4">
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center
+                                {% if decision.status == 'approved' %}bg-green-100{% else %}bg-red-100{% endif %}">
+                        {% if decision.status == 'approved' %}
+                        <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        {% else %}
+                        <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        {% endif %}
+                    </div>
+                    <div>
+                        <div class="font-semibold text-gray-900">{{ decision.renewable_source.title() }} Hydrogen Credit</div>
+                        <div class="text-sm text-gray-600">{{ decision.tokens_generated }} Tokens - {{ decision.facility_name }}</div>
+                        <div class="text-xs text-gray-500">{{ decision.verified_at.strftime('%b %d, %Y at %I:%M %p') }} - {{ decision.status.title() }}</div>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <div class="font-bold {% if decision.status == 'approved' %}text-green-600{% else %}text-red-600{% endif %}">
+                        {{ decision.status.title() }}
+                    </div>
+                    <div class="text-xs text-gray-500">by {{ decision.verified_by }}</div>
+                </div>
+            </div>
+            {% else %}
+            <div class="text-center py-8 text-gray-500">
+                <p>No recent decisions to display</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
