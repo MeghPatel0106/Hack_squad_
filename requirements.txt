@@ -6,3 +6,4 @@ python-socketio==5.8.0
 eventlet==0.33.3
 redis==4.6.0
 celery==5.3.4
+gunicorn
