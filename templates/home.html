@@ -3,17 +3,17 @@
 {% block title %}Home - Blockchain Green Hydrogen Credits{% endblock %}
 
 {% block content %}
-<div class="space-y-16">
+<div class="space-y-16 bg-gray-900 text-gray-100">
     <!-- Hero Section -->
-    <div class="text-center py-16 bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl">
+    <div class="text-center py-16 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl">
         <div class="max-w-4xl mx-auto px-4">
-            <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                Blockchain-Based 
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
+            <h1 class="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                Blockchain-Based
+                <div class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400">
                     Green Hydrogen Credit System
-                </span>
+                </div>
             </h1>
-            <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
                 Revolutionizing the hydrogen economy with transparent, secure, and fraud-proof 
                 certification for green hydrogen production and trading.
             </p>
@@ -21,17 +21,17 @@
             {% if not session.user_id %}
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
                     <a href="{{ url_for('login') }}" 
-                       class="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
+                       class="bg-white hover:from-green-600 hover:to-blue-600 text-green-400 px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
                         Login to Dashboard
                     </a>
                     <a href="{{ url_for('register') }}" 
-                       class="border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105">
+                       class="border-2 border-green-400 text-green-400 hover:bg-green-500 hover:text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105">
                         Register Now
                     </a>
                 </div>
             {% else %}
                 <a href="{{ url_for('dashboard') }}" 
-                   class="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
+                   class="bg-gray-700 hover:bg-gray-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
                     Go to Dashboard
                 </a>
             {% endif %}
@@ -41,75 +41,75 @@
     <!-- Features Section -->
     <div class="py-16">
         <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold text-gray-900 mb-4">
+            <h2 class="text-4xl font-bold text-white mb-4">
                 Platform Features
             </h2>
-            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto">
                 Our comprehensive system provides everything needed for secure and transparent 
                 green hydrogen credit management.
             </p>
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- Feature 1: Issue & Track Credits -->
-            <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+            <!-- Feature 1 -->
+            <div class="bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-700">
                 <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mb-6 mx-auto">
                     <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                 </div>
-                <h3 class="text-xl font-semibold text-gray-900 mb-4 text-center">
+                <h3 class="text-xl font-semibold text-white mb-4 text-center">
                     Issue & Track Green Hydrogen Credits
                 </h3>
-                <p class="text-gray-600 text-center leading-relaxed">
+                <p class="text-gray-400 text-center leading-relaxed">
                     Seamlessly create, distribute, and monitor green hydrogen credits with 
                     real-time tracking and verification capabilities.
                 </p>
             </div>
 
-            <!-- Feature 2: Blockchain Certification -->
-            <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+            <!-- Feature 2 -->
+            <div class="bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-700">
                 <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6 mx-auto">
                     <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                     </svg>
                 </div>
-                <h3 class="text-xl font-semibold text-gray-900 mb-4 text-center">
+                <h3 class="text-xl font-semibold text-white mb-4 text-center">
                     Blockchain-powered Transparent Certification
                 </h3>
-                <p class="text-gray-600 text-center leading-relaxed">
+                <p class="text-gray-400 text-center leading-relaxed">
                     Immutable blockchain records ensure complete transparency and 
                     traceability of all certification processes and transactions.
                 </p>
             </div>
 
-            <!-- Feature 3: Fraud Prevention -->
-            <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+            <!-- Feature 3 -->
+            <div class="bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-700">
                 <div class="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center mb-6 mx-auto">
                     <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                     </svg>
                 </div>
-                <h3 class="text-xl font-semibold text-gray-900 mb-4 text-center">
+                <h3 class="text-xl font-semibold text-white mb-4 text-center">
                     Fraud Prevention & One-time Use Certificates
                 </h3>
-                <p class="text-gray-600 text-center leading-relaxed">
+                <p class="text-gray-400 text-center leading-relaxed">
                     Advanced security measures prevent double-spending and ensure 
                     each certificate can only be used once for maximum integrity.
                 </p>
             </div>
 
-            <!-- Feature 4: Multi-User Dashboard -->
-            <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+            <!-- Feature 4 -->
+            <div class="bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-700">
                 <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-6 mx-auto">
                     <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                     </svg>
                 </div>
-                <h3 class="text-xl font-semibold text-gray-900 mb-4 text-center">
+                <h3 class="text-xl font-semibold text-white mb-4 text-center">
                     Dashboard for Producers, Buyers, and Regulators
                 </h3>
-                <p class="text-gray-600 text-center leading-relaxed">
+                <p class="text-gray-400 text-center leading-relaxed">
                     Tailored interfaces for different user types with role-based 
                     access and specialized tools for each stakeholder group.
                 </p>
@@ -118,11 +118,11 @@
     </div>
 
     <!-- Call to Action Section -->
-    <div class="bg-gradient-to-r from-green-600 to-blue-600 rounded-2xl p-12 text-center text-white">
+    <div class="bg-gray-800 rounded-2xl p-12 text-center text-white">
         <h2 class="text-3xl md:text-4xl font-bold mb-6">
             Ready to Join the Green Hydrogen Revolution?
         </h2>
-        <p class="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+        <p class="text-xl mb-8 max-w-2xl mx-auto opacity-80">
             Start trading green hydrogen credits with confidence. Our platform ensures 
             transparency, security, and compliance for all participants.
         </p>
@@ -130,7 +130,7 @@
         {% if not session.user_id %}
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a href="{{ url_for('register') }}" 
-                   class="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
+                   class="bg-white text-green-600 hover:bg-gray-200 px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
                     Get Started Today
                 </a>
                 <a href="{{ url_for('login') }}" 
@@ -140,7 +140,7 @@
             </div>
         {% else %}
             <a href="{{ url_for('dashboard') }}" 
-               class="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
+               class="bg-gray-900 border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
                 Access Your Dashboard
             </a>
         {% endif %}
@@ -149,16 +149,16 @@
     <!-- Stats Section -->
     <div class="grid md:grid-cols-3 gap-8 py-16">
         <div class="text-center">
-            <div class="text-4xl font-bold text-green-600 mb-2">100%</div>
-            <div class="text-gray-600">Transparent Transactions</div>
+            <div class="text-4xl font-bold text-green-400 mb-2">100%</div>
+            <div class="text-gray-400">Transparent Transactions</div>
         </div>
         <div class="text-center">
-            <div class="text-4xl font-bold text-blue-600 mb-2">24/7</div>
-            <div class="text-gray-600">Blockchain Verification</div>
+            <div class="text-4xl font-bold text-blue-400 mb-2">24/7</div>
+            <div class="text-gray-400">Blockchain Verification</div>
         </div>
         <div class="text-center">
-            <div class="text-4xl font-bold text-purple-600 mb-2">Zero</div>
-            <div class="text-gray-600">Fraud Incidents</div>
+            <div class="text-4xl font-bold text-yellow-400 mb-2">Zero</div>
+            <div class="text-gray-400">Fraud Incidents</div>
         </div>
     </div>
 </div>

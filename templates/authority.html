@@ -5,7 +5,7 @@
 {% block content %}
 <div class="space-y-8">
     <!-- Header Section -->
-    <div class="bg-gradient-to-r from-red-600 to-orange-600 rounded-xl p-8 text-white">
+    <div class="bg-gradient-to-r from-blue-800 to-blue-900 rounded-xl p-8 text-white">
         <div class="flex items-center justify-between">
             <div>
                 <h1 class="text-3xl font-bold mb-2">Authority Panel</h1>
@@ -21,51 +21,51 @@
 
     <!-- Authority Stats Section -->
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100 text-center">
+        <div class="bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-800 text-center">
             <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
             </div>
-            <div class="text-2xl font-bold text-gray-900">{{ pending_requests|length }}</div>
-            <div class="text-sm text-gray-600">Pending Requests</div>
+            <div class="text-2xl font-bold text-white">{{ pending_requests|length }}</div>
+            <div class="text-sm text-gray-400">Pending Requests</div>
         </div>
         
-        <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100 text-center">
+        <div class="bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-800 text-center">
             <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
             </div>
-            <div class="text-2xl font-bold text-gray-900">{{ approved_requests }}</div>
-            <div class="text-sm text-gray-600">Approved Today</div>
+            <div class="text-2xl font-bold text-white">{{ approved_requests }}</div>
+            <div class="text-sm text-gray-400">Approved Today</div>
         </div>
         
-        <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100 text-center">
+        <div class="bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-800 text-center">
             <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
             </div>
-            <div class="text-2xl font-bold text-gray-900">{{ rejected_requests }}</div>
-            <div class="text-sm text-gray-600">Rejected Today</div>
+            <div class="text-2xl font-bold text-white">{{ rejected_requests }}</div>
+            <div class="text-sm text-gray-400">Rejected Today</div>
         </div>
 
-        <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100 text-center">
+        <div class="bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-800 text-center">
             <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
                 </svg>
             </div>
-            <div class="text-2xl font-bold text-gray-900">{{ total_verified }}</div>
-            <div class="text-sm text-gray-600">Total Verified</div>
+            <div class="text-2xl font-bold text-white">{{ total_verified }}</div>
+            <div class="text-sm text-gray-400">Total Verified</div>
         </div>
     </div>
 
     <!-- Pending Requests Section -->
-    <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+    <div class="bg-gray-800 rounded-xl shadow-lg p-8 border border-gray-800">
         <div class="flex items-center justify-between mb-8">
-            <h2 class="text-2xl font-bold text-gray-900">Pending Verification Requests</h2>
+            <h2 class="text-2xl font-bold text-gray-100">Pending Verification Requests</h2>
             <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
                 <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -316,9 +316,9 @@
     </div>
 
     <!-- Recent Decisions Section -->
-    <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+    <div class="bg-gray-800 rounded-xl shadow-lg p-8 border border-gray-800">
         <div class="flex items-center justify-between mb-8">
-            <h2 class="text-2xl font-bold text-gray-900">Recent Decisions</h2>
+            <h2 class="text-2xl font-bold text-gray-100">Recent Decisions</h2>
             <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
                 <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>

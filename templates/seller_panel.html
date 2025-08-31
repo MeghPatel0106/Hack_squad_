@@ -5,7 +5,7 @@
 {% block content %}
 <div class="space-y-8">
     <!-- Header Section -->
-    <div class="bg-gradient-to-r from-orange-600 to-red-600 rounded-xl p-8 text-white">
+    <div class="bg-gradient-to-r from-blue-800 to-blue-900 rounded-xl p-8 text-white">
         <div class="flex items-center justify-between">
             <div>
                 <h1 class="text-3xl font-bold mb-2">Seller Panel</h1>
@@ -21,43 +21,46 @@
 
     <!-- Production Stats Section -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100 text-center">
-            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-800 text-center">
+            <div class="w-12 h-12 bg-green-900/40 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
                 </svg>
             </div>
-                            <div class="text-2xl font-bold text-gray-900">{{ total_credits }}</div>
-                <div class="text-sm text-gray-600">Total Credits Issued</div>
+            <div class="text-2xl font-bold text-gray-100">{{ total_credits }}</div>
+            <div class="text-sm text-gray-400">Total Credits Issued</div>
         </div>
         
-        <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100 text-center">
-            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+        <div class="bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-800 text-center">
+            <div class="w-12 h-12 bg-blue-900/40 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-400">
+                  <g transform="translate(4,3) scale(0.7)">
+                    <path stroke-linecap="round" stroke-linejoin="round" 
+                          d="M6 5h12M6 9h12M6 13h6a4 4 0 0 0 0-8H6m0 8l9 8"/>
+                  </g>
                 </svg>
             </div>
-                            <div class="text-2xl font-bold text-gray-900">${{ "%.2f"|format(total_revenue) }}</div>
-                <div class="text-sm text-gray-600">Total Revenue</div>
+            <div class="text-2xl font-bold text-gray-100">₹{{ "%.2f"|format(total_revenue) }}</div>
+            <div class="text-sm text-gray-400">Total Revenue</div>
         </div>
         
-        <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100 text-center">
-            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-800 text-center">
+            <div class="w-12 h-12 bg-purple-900/40 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
             </div>
-                            <div class="text-2xl font-bold text-gray-900">{{ total_tokens }}</div>
-                <div class="text-sm text-gray-600">Tokens Available</div>
+            <div class="text-2xl font-bold text-gray-100">{{ total_tokens }}</div>
+            <div class="text-sm text-gray-400">Tokens Available</div>
         </div>
     </div>
 
     <!-- Production Data Form Section -->
-    <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-100">
-        <div class="flex items-center justify-between mb-8">
-            <h2 class="text-2xl font-bold text-gray-900">Submit Production Data</h2>
-            <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
-                <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <div class="bg-gray-900 rounded-xl shadow-lg p-8 border border-gray-800">
+        <div class="flex items-center justify-between">
+            <h2 class="text-2xl font-bold text-gray-100">Submit Production Data</h2>
+            <div class="w-12 h-12 bg-orange-900/40 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                 </svg>
             </div>
@@ -68,21 +71,21 @@
                 <!-- Production Details -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label for="production_capacity" class="block text-sm font-medium text-gray-700 mb-2">
+                        <label for="production_capacity" class="block text-sm font-medium text-gray-300 mb-2">
                             Production Capacity (MWh)
                         </label>
                         <input type="number" id="production_capacity" name="production_capacity" 
-                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                               class="w-full px-4 py-3 border border-gray-700 rounded-lg bg-gray-800 text-gray-100 placeholder-gray-400 focus:ring-2 focus:ring-green-500 focus:border-green-500"
                                placeholder="Enter production capacity" step="0.1" required>
                         <p class="text-sm text-gray-500 mt-1">Enter the total MWh of green hydrogen produced</p>
                     </div>
                     
                     <div>
-                        <label for="hydrogen_weight_kg" class="block text-sm font-medium text-gray-700 mb-2">
+                        <label for="hydrogen_weight_kg" class="block text-sm font-medium text-gray-300 mb-2">
                             Hydrogen Weight (kg)
                         </label>
                         <input type="number" id="hydrogen_weight_kg" name="hydrogen_weight_kg" 
-                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                               class="w-full px-4 py-3 border border-gray-700 rounded-lg bg-gray-800 text-gray-100 placeholder-gray-400 focus:ring-2 focus:ring-green-500 focus:border-green-500"
                                placeholder="Enter hydrogen weight" step="0.1" required>
                         <p class="text-sm text-gray-500 mt-1">Enter the weight of hydrogen produced in kg (1 kg = 1 token)</p>
                     </div>
@@ -90,11 +93,11 @@
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label for="renewable_source" class="block text-sm font-medium text-gray-700 mb-2">
+                        <label for="renewable_source" class="block text-sm font-medium text-gray-300 mb-2">
                             Renewable Source
                         </label>
                         <select id="renewable_source" name="renewable_source" 
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500" required>
+                                class="w-full px-4 py-3 border border-gray-700 rounded-lg bg-gray-800 text-gray-100 focus:ring-2 focus:ring-green-500 focus:border-green-500" required>
                             <option value="">Select renewable source</option>
                             <option value="solar">Solar Power</option>
                             <option value="wind">Wind Power</option>
@@ -108,20 +111,20 @@
                 <!-- Date and Location -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label for="production_date" class="block text-sm font-medium text-gray-700 mb-2">
+                        <label for="production_date" class="block text-sm font-medium text-gray-300 mb-2">
                             Production Date
                         </label>
                         <input type="date" id="production_date" name="production_date" 
-                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500" required>
+                               class="w-full px-4 py-3 border border-gray-700 rounded-lg bg-gray-800 text-gray-100 placeholder-gray-400 focus:ring-2 focus:ring-green-500 focus:border-green-500" required>
                         <p class="text-sm text-gray-500 mt-1">Date when production was completed</p>
                     </div>
                     
                     <div>
-                        <label for="location" class="block text-sm font-medium text-gray-700 mb-2">
+                        <label for="location" class="block text-sm font-medium text-gray-300 mb-2">
                             Production Location
                         </label>
                         <input type="text" id="location" name="location" 
-                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                               class="w-full px-4 py-3 border border-gray-700 rounded-lg bg-gray-800 text-gray-100 placeholder-gray-400 focus:ring-2 focus:ring-green-500 focus:border-green-500"
                                placeholder="Enter production facility location" required>
                         <p class="text-sm text-gray-500 mt-1">Full address of the production facility</p>
                     </div>
@@ -130,21 +133,21 @@
                 <!-- Additional Details -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label for="facility_name" class="block text-sm font-medium text-gray-700 mb-2">
+                        <label for="facility_name" class="block text-sm font-medium text-gray-300 mb-2">
                             Facility Name
                         </label>
                         <input type="text" id="facility_name" name="facility_name" 
-                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                               class="w-full px-4 py-3 border border-gray-700 rounded-lg bg-gray-800 text-gray-100 placeholder-gray-400 focus:ring-2 focus:ring-green-500 focus:border-green-500"
                                placeholder="Enter facility name" required>
                         <p class="text-sm text-gray-500 mt-1">Name of your production facility</p>
                     </div>
                     
                     <div>
-                        <label for="certification_type" class="block text-sm font-medium text-gray-700 mb-2">
+                        <label for="certification_type" class="block text-sm font-medium text-gray-300 mb-2">
                             Certification Type
                         </label>
                         <select id="certification_type" name="certification_type" 
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500" required>
+                                class="w-full px-4 py-3 border border-gray-700 rounded-lg bg-gray-800 text-gray-100 focus:ring-2 focus:ring-green-500 focus:border-green-500" required>
                             <option value="">Select certification type</option>
                             <option value="standard">Standard Green Hydrogen</option>
                             <option value="premium">Premium Green Hydrogen</option>
@@ -156,23 +159,19 @@
 
                 <!-- Description -->
                 <div>
-                    <label for="description" class="block text-sm font-medium text-gray-700 mb-2">
+                    <label for="description" class="block text-sm font-medium text-gray-300 mb-2">
                         Production Description
                     </label>
                     <textarea id="description" name="description" rows="4"
-                              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                              class="w-full px-4 py-3 border border-gray-700 rounded-lg bg-gray-800 text-gray-100 placeholder-gray-400 focus:ring-2 focus:ring-green-500 focus:border-green-500"
                               placeholder="Describe your production process and any additional details"></textarea>
                     <p class="text-sm text-gray-500 mt-1">Optional: Additional details about your production process</p>
                 </div>
                 
                 <!-- Submit Button -->
-                <div class="flex items-center justify-between pt-6 border-t border-gray-200">
-                    <div class="text-sm text-gray-600">
-                        <p>✅ All data will be verified on the blockchain</p>
-                        <p>🔒 Your information is secure and encrypted</p>
-                    </div>
+                <div class="flex items-center justify-between pt-6 border-t border-gray-700">
                     <button type="submit" 
-                            class="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white py-4 px-8 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">
+                            class="bg-white hover:from-orange-700 hover:to-red-700 text-black py-4 px-8 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:bg-gray-700 hover:text-white">
                         Submit Production Data
                     </button>
                 </div>
@@ -181,11 +180,11 @@
     </div>
 
     <!-- Recent Submissions Section -->
-    <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+    <div class="bg-gray-900 rounded-xl shadow-lg p-8 border border-gray-800">
         <div class="flex items-center justify-between mb-8">
-            <h2 class="text-2xl font-bold text-gray-900">Recent Submissions</h2>
-            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <h2 class="text-2xl font-bold text-gray-100">Recent Submissions</h2>
+            <div class="w-12 h-12 bg-green-900/40 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
             </div>
@@ -193,21 +192,21 @@
         
         <div class="space-y-4">
             {% for submission in recent_submissions %}
-            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-200">
+            <div class="flex items-center justify-between p-4 bg-gray-800 rounded-lg border border-gray-700">
                 <div class="flex items-center space-x-4">
-                    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                        <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="w-10 h-10 bg-green-900/40 rounded-full flex items-center justify-center">
+                        <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
                     <div>
-                        <div class="font-semibold text-gray-900">{{ submission.renewable_source.title() }} Hydrogen Production</div>
-                        <div class="text-sm text-gray-600">{{ submission.tokens_generated }} Tokens - {{ submission.facility_name }}, {{ submission.location }}</div>
+                        <div class="font-semibold text-gray-100">{{ submission.renewable_source.title() }} Hydrogen Production</div>
+                        <div class="text-sm text-gray-400">{{ submission.tokens_generated }} Tokens - {{ submission.facility_name }}, {{ submission.location }}</div>
                         <div class="text-xs text-gray-500">{{ submission.created_at.strftime('%b %d, %Y') }} - Status: {{ submission.status.title() }}</div>
                     </div>
                 </div>
                 <div class="text-right">
-                                            <div class="font-bold text-green-600">${{ "%.2f"|format(submission.tokens_generated * submission.price_per_token) }}</div>
+                    <div class="font-bold text-green-400">${{ "%.2f"|format(submission.tokens_generated * submission.price_per_token) }}</div>
                     <div class="text-xs text-gray-500">Revenue</div>
                 </div>
             </div>
