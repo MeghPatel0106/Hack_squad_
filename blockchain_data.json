@@ -181,6 +181,29 @@
       "previous_hash": "000069aafac67528da69ef5680b695c9777f2741f4a6351c9ecc31e478fb686c",
       "nonce": 10381,
       "hash": "000028caf60a014756aa7ac888fd4301c7e2da46c64823bd3b532a8877992405"
+    },
+    {
+      "index": 9,
+      "timestamp": 1756616797.4240918,
+      "data": {
+        "type": "hydrogen_credit_certificate",
+        "certificate_id": "cf6b2c50-3e5f-4887-b0f9-1e9536dd9871",
+        "seller_id": 8,
+        "facility_name": "Megh",
+        "hydrogen_weight_kg": 554.0,
+        "tokens_generated": 554,
+        "renewable_source": "solar",
+        "production_date": "2025-07-02",
+        "location": "Ahmedabad",
+        "certification_type": "standard",
+        "price_per_token": 2.5,
+        "status": "issued",
+        "issued_at": "2025-08-31T05:06:37.424074+00:00",
+        "blockchain_version": "1.0"
+      },
+      "previous_hash": "000028caf60a014756aa7ac888fd4301c7e2da46c64823bd3b532a8877992405",
+      "nonce": 283201,
+      "hash": "000037c39a4ff0126ac527852231cd159b3ad3734223a25f2c7480e0c9786ad3"
     }
   ],
   "certificates": {
@@ -252,8 +275,8 @@
     "70482afe-50f1-41c8-ac68-9d280058e491",
     "492828b0-d2ca-48d3-b5bf-412ad50460f1"
   ],
-  "last_updated": "2025-08-30T10:39:18.615617+00:00",
-  "total_blocks": 9,
+  "last_updated": "2025-08-31T05:06:39.732268+00:00",
+  "total_blocks": 10,
   "total_certificates": 3,
   "retired_count": 2
 }
